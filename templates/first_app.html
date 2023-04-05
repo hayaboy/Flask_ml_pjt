@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <title>첫 번째 애플리케이션</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% from "_formhelpers.html" import render_field %}
+
+<div>댓글을 달아 주세요.</div>
+<form method=post action="/hello">
+
+    <dl>
+        {{ render_field(form.hdskj) }}
+    </dl>
+
+    <input type=submit value='댓글 입력' name='submit_btn'>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% macro render_field(field) %}
+<!-- 진자2 문법에서는 중괄호%  %중괄호안에 파이썬 코드를 삽입
+겹중괄호 안에는 파이썬 표현식을 넣을 수 있으며 단순한 변수값을 출력하기 위해 많이 사용됨
+주석에 중괄호 넣으면 에러남
+-->
+<dt>{{ field.label }}
+<dd>{{ field(**kwargs)|safe }}
+    {% if field.errors %}
+    <ul class=errors>
+        {% for error in field.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</dd>
+</dt>
+{% endmacro %}
